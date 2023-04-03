@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card bg-secondary bg-gradient">
+          <div class="card-header">
+            <h1 class="text-center">Edit Shop</h1>
+          </div>
+          <div class="card-body">
+            <form method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">Shop Name</label>
+                {{ form.name }}
+              </div>
+              <div class="form-group">
+                <label for="{{ form.latitude.id_for_label }}">Latitude</label>
+                {{ form.latitude }}
+              </div>
+              <div class="form-group">
+                <label for="{{ form.longitude.id_for_label }}">Longitude</label>
+                {{ form.longitude }}
+              </div>
+              <div class="form-group">
+                <label for="{{ form.longitude.id_for_label }}">Address</label>
+                {{ form.address }}
+              </div>
+              <div class="form-group">
+                <label for="{{ form.longitude.id_for_label }}">Description</label>
+                {{ form.description }}
+              </div>
+              <button type="submit" class="btn btn-primary btn-block btn-lg mt-4 animated bounceInRight">Update</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

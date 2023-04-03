@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="my-4">Shops Within Distance</h1>
+    <div class="row">
+      {% if shops %}
+        {% for shop in shops %}
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body bg-secondary bg-gradient">
+                <h5 class="card-title">{{ shop.name }}</h5>
+                <p class="card-text">{{ shop.latitude }}, {{ shop.longitude }}</p>
+                <p class="card-text">{{ shop.address }}</p>
+                <p class="card-text">{{ shop.description }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="col-md-12">
+          <p>No shops within the specified distance.</p>
+        </div>
+      {% endif %}
+    </div>
+    <a href="{% url 'shop_within_distance_form' %}" class="btn btn-primary">Find More Shops</a>
+  </div>
+{% endblock %}

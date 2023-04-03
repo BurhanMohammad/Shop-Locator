@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card mx-auto" style="max-width: 400px;">
+  <div class="card-body bg-secondary bg-gradient">
+    <h1 class="card-title mb-4">Find Shops Within Distance</h1>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="latitude">Latitude:</label>
+        <input type="text" class="form-control" id="latitude" name="latitude" required>
+      </div>
+      <div class="form-group">
+        <label for="longitude">Longitude:</label>
+        <input type="text" class="form-control" id="longitude" name="longitude" required>
+      </div>
+      <div class="form-group">
+        <label for="distance">Distance (in km):</label>
+        <input type="number" class="form-control" id="distance" name="distance" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Find Shops</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
